@@ -1,0 +1,22 @@
+{
+    "admin_server": {
+            "listen_url": "0.0.0.0:8080",
+            "use_tls": true,
+            "cert_path": "/etc/letsencrypt/live/www.dominio.com.br/fullchain.pem",
+            "key_path": "/etc/letsencrypt/live/www.dominio.com.br/privkey.pem"
+    },
+    "phish_server": {
+            "listen_url": "0.0.0.0:443",
+            "use_tls": true,
+            "cert_path": "/etc/letsencrypt/live/www.dominio.com.br/fullchain.pem",
+            "key_path": "/etc/letsencrypt/live/www.dominio.com.br/privkey.pem"
+    },
+    "db_name": "sqlite3",
+    "db_path": "gophish.db",
+    "migrations_prefix": "db/db_",
+    "contact_address": "abuse@DOMAIN.COM.BR",
+    "logging": {
+            "filename": "",
+            "level": ""
+    }
+}
