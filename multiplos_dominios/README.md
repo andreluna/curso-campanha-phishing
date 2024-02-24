@@ -88,7 +88,47 @@ Poderia ser por exemplo os sites: ```https://admin.meusite.com.br/``` , ```https
 
 O primeiro passo é gerar os certificados Let`s Encrypt para os outros domínios que você deseja utilizar. Essa parte foi explicada no curso que está na Udemy e aqui neste repositório tem um script em ShellScript para ajudar nesta tarefa.
 
-**Preciso passar o caminho(path) do certificado para o Caddy? Não, ele automaticamente localiza esses certificados.**
+### Atenção Aqui!!!
+
+Para esses outros domínios que você for utilizar, não é necessário gerar manualmente os certificados Let`s Encrypt, o Caddy faz isso automáticamente.
+
+Como? 
+
+Basta configura-los no arquivo ```Caddyfile```.
+Por exemplo: Você quer usar mais 3 domínios para fazer campanhas de phishing para outras empresas.
+
+Seu arquivo ```Caddyfile``` deverá ficar assim: 
+
+```
+site1.com.br {
+    header Content-Type text/html
+    respond "<h1>Meu site1</h1>"
+}
+
+outrosite.net {
+    header Content-Type text/html
+    respond "<h1>Meu outro site</h1>"
+}
+
+maisumsite.com {
+    header Content-Type text/html
+    respond "<h1>maisumsite aqui</h1>"
+}
+
+```
+
+Lembrando, as entradas no DNS do tipo A devem apontar para o IP do seu servidor.
+
+Após criar esse arquivo ```Caddyfile```, basta rodar o Caddy.
+
+```
+caddy run Caddyfile
+```
+
+O Caddy vai fazer as verificações e o challenge e gerar os certificados Let`s Encrypt.
+A saber, o local onde o Caddy guarda esses arquivos fica em: ```/root/.local/share/caddy```.
+
+Lembrando que essa configuração do arquivo ```Caddyfile``` é para gerar o certificado digital. Essa configuração não vai servir para fazer o proxy reverso que queremos para utilizar em conjunto com o GoPhish.
 
 O segundo passo é configurar o e-mail para o domínio caso você queria fazer uso deles, essa parte também foi explicada no curso.
 
