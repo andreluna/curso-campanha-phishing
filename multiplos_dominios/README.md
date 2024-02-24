@@ -74,13 +74,13 @@ Nosso arquivo de configuração do GoPhish, o arquivo ```config.json``` ficou as
 
 #### Atenção:
 
-Temos o nosso GoPhish da interface de administração ("admin_server"), que está na porta 8080 e seu IP está configurado como 0.0.0.0, isto quer dizer que ele pode receber conexões da internet, que é justamente o que queremos afim de fazer as configurações, criar campanhas, configurar e-mail etc.
+Temos o nosso GoPhish na interface de administração ("admin_server"), que está na porta 8080 e seu IP está configurado como 0.0.0.0, isto quer dizer que ele pode receber conexões da internet, que é justamente o que queremos afim de fazer as configurações, criar campanhas, configurar e-mail etc.
 
-O nosso GoPhish na interface de servidor de phishing ("phish_server") está configurado apenas para receber conexões locais (127.0.0.1), isso quer dizer que pela internet não é possível fazer o acesso nas páginas de phishing, quem vai fazer esse papel será jusmante o Caddy que configuramos.
+O nosso GoPhish na interface de servidor de phishing ("phish_server") está configurado apenas para receber conexões locais (127.0.0.1), isso quer dizer que pela internet não é possível fazer o acesso nas páginas de phishing, quem vai fazer esse papel será justamente o Caddy que vamos configurar.
 
 Então quando alguém fizer o acesso em nossas páginas de phishing, tanto ```https://maat.fun``` como ```https://isis.maat.fun``` ou qualquer outra, esse acesso será internamente direcionado para a interface "phish_server" do GoPhish. Isso poderá ser feito em qualquer domínio, não apenas para subdomínios como estou usando de exemplo.
 
-Poderia ser por exemplo os sites: ```https://admin.meusite.com.br/``` , ```https://vpn.empresax.net``` e ```https://manager.org-abc.com```. O que importa aqui é simplesmente que os domínios estajam configurados com suas respectivas entradas do tipo A no seu DNS para o IP do servidor que está hospedado tanto o Gophish como o Caddy.
+Poderia ser por exemplo os sites: ```https://admin.meusite.com.br/``` , ```https://vpn.empresax.net``` e ```https://manager.org-abc.com```. O que importa aqui é simplesmente que os domínios sejam configurados com suas respectivas entradas do tipo A no seu DNS para o IP do servidor que está hospedando tanto o Gophish como o Caddy.
 
 <hr>
 
@@ -114,7 +114,7 @@ Faça o teste e verifique se está recebendo corretamente os e-mails dos novos d
 
 ![Image](images/email_maat_001.jpg)
 
-Com o Sending Profile configurado, E-mail template criado e a Lading Page configurada, mas agora inserir a URL do domínio que você quer utilizar.
+Com o Sending Profile configurado, E-mail template criado e a Lading Page configurada, vamos agora inserir a URL do domínio que você quer utilizar na configuração da campanha de phishing.
 
 No meu teste, configurei duas campanhas, uma para o domínio ```htps://maat.fun``` e outra para o domínio ```https://isis.maat.fun/```.
 
@@ -126,7 +126,7 @@ E para cada campanha, utilizei o Sending Profile correspondente ao domínio.
 
 Após feita todas as configurações, basta fazer o disparo das campanhas.
 
-Claro, não esquecer de iniciar o Caddy para que ele faça o controle das páginas e direciona os acessos da página de phishing para o GoPhish.
+**Claro, não esquecer de iniciar o Caddy para que ele faça o controle das páginas e direciona os acessos da página de phishing para o GoPhish.**
 
 O arquivo de configuração padrão do Caddy, o arquivo ```Caddyile``` fica em ```/etc/caddy/```. Mas podemos criar o nosso arquivo e fazer sua chamada.
 
