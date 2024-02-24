@@ -190,7 +190,7 @@ caddy start --config Caddyfile
 ![Image](images/caddy_003.jpg)
 
 
-Abaixo podemos verificar os dois domínios funcionando corretamete.
+Abaixo podemos verificar os dois domínios funcionando corretamente.
 
 ![Image](images/pagina_phishing_isis.jpg)
 
