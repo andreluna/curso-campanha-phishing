@@ -1,0 +1,7 @@
+maat.fun {
+   reverse_proxy 127.0.0.1:8181
+}
+
+isis.maat.fun {
+    reverse_proxy 127.0.0.1:8181
+}

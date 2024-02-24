@@ -1,0 +1,22 @@
+{
+    "admin_server": {
+            "listen_url": "0.0.0.0:8080",
+            "use_tls": true,
+            "cert_path": "/etc/letsencrypt/live/maat.fun/fullchain.pem",
+            "key_path": "/etc/letsencrypt/live/maat.fun/privkey.pem"
+    },
+    "phish_server": {
+            "listen_url": "127.0.0.1:8181",
+            "use_tls": false,
+            "cert_path": "example.crt",
+            "key_path": "example.key"
+    },
+    "db_name": "sqlite3",
+    "db_path": "gophish.db",
+    "migrations_prefix": "db/db_",
+    "contact_address": "abuse@domain.com.br",
+    "logging": {
+            "filename": "",
+            "level": ""
+    }
+}
